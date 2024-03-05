@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIXAR</title>
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+    <style>
+        body {
+            /* background-color: #d4a373; */
+            background: #0F2027;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #2C5364, #203A43, #0F2027);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+            color: #fefae0;
+        }
+
+        .heading {
+            text-align: center;
+            font-family: cursive;
+        }
+
+
+        .form {
+            width: 500px;
+            /* background-color: #dda15e; */
+            background: #bdc3c7;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #2c3e50, #bdc3c7);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+            /* border: 5px solid #bc6c25; */
+            background-color: rgba(184, 113, 21, 0.5);
+            border-radius: 5px;
+            margin-top: 60px;
+            height: 520px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            -webkit-box-shadow: 7px 7px 25px 0px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 7px 7px 25px 0px rgba(0, 0, 0, 0.75);
+            box-shadow: 7px 7px 25px 0px rgba(0, 0, 0, 0.75);
+        }
+
+        .form1 {
+            text-align: center;
+        }
+
+        .form2 {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .form3 {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .form4 {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .form5 {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        button {
+            padding: 15px 10px;
+            border: none;
+            font-family: Arial, Helvetica, sans-serif;
+            /* background-color: #606c38; */
+            background: #0F2027;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to left, #2C5364, #203A43, #0F2027);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to left, #2C5364, #203A43, #0F2027);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+            color: white;
+            border-radius: 5px;
+            width: 120px;
+            cursor: pointer;
+            transition: 0.5s all;
+        }
+
+        .image {
+            margin-top: 40px;
+            text-align: center;
+            margin-left: 50px;
+        }
+
+        img {
+            border: 5px solid #212f45;
+            border-radius: 5px;
+            height: 597px;
+            width: 518px;
+        }
+
+        .all {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="heading">
+        <h1>IMAGE EDITOR</h1>
+    </div>
+
+    <div class="all">
+        <div class="form">
+            <div class="form1">
+                <form action="/process" method="post" enctype="multipart/form-data">
+                    <input type="file" name="image" accept="image/*" required>
+                    <button type="submit">PAINT</button>
+                </form>
+            </div>
+
+            <div class="form2">
+                <form action="/out_process" method="post" enctype="multipart/form-data">
+                    <input type="file" name="image" accept="image/*" required>
+                    <button type="submit">SKETCH</button>
+                </form>
+            </div>
+
+            <div class="form3">
+                <form action="/pen_out" method="post" enctype="multipart/form-data">
+                    <input type="file" name="image" accept="image/*" required>
+                    <button type="submit">PENCIL</button>
+                </form>
+            </div>
+
+            <div class="form4">
+                <form action="/light_out" method="post" enctype="multipart/form-data">
+                    <input type="file" name="image" accept="image/*" required>
+                    <button type="submit">LIGHT</button>
+                </form>
+            </div>
+
+            <div class="form5">
+                <form action="/dark_out" method="post" enctype="multipart/form-data">
+                    <input type="file" name="image" accept="image/*" required>
+                    <button type="submit">DARK</button>
+                </form>
+            </div>
+        </div>
+
+
+        <div class="image">
+            {% if img_path %}
+            <img src="{{ url_for('static', filename='processed_image.png') }}" alt="Processed Image">
+            {% endif %}
+        </div>
+    </div>
+</body>
+
+</html>
